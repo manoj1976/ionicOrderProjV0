@@ -1,0 +1,84 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Balance View</ion-title>
+    <ion-buttons end>
+      <ion-spinner  name="circles" *ngIf='varShowProgress'></ion-spinner>
+  </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row align-items-start>
+        <ion-col col-3>
+          <h5>{{varBalanceCheck.code}}</h5>
+        </ion-col>
+        <ion-col col-9>
+            <h5>{{varBalanceCheck.name}}</h5>
+        </ion-col>
+    </ion-row>
+</ion-grid>
+
+
+<div></div>
+<div></div>
+    <ion-grid>
+        <ion-row align-items-start>
+            <ion-col col-4>
+              <strong>Currency</strong>
+            </ion-col>
+            <ion-col col-4>
+              <span style="float: right"> <strong>Balance</strong></span>
+            </ion-col>
+            <ion-col col-4>
+               <span style="float: right"> <strong>Balance(LCY)</strong></span>
+            </ion-col>
+          </ion-row>
+    
+          <ion-row align-items-start *ngFor="let item of customerBalanceList">
+              <ion-col col-4>
+                  {{item.currency}}
+                </ion-col>
+                <ion-col col-4>
+                  <span style="float: right">{{item.balance | number:'1.2-2' }}</span>
+                </ion-col>
+                <ion-col col-4>
+                  <span style="float: right">{{item.balanceLCY | number:'1.2-2' }}</span>
+                </ion-col>
+          </ion-row>
+
+          <!--For blank lines-->
+          <ion-row>
+            <ion-col col-3>
+              </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-3>
+              </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-3>
+              </ion-col>
+        </ion-row>
+        <!--For blank lines-->
+
+
+        <ion-row>
+          <ion-col col-4>
+          </ion-col>
+          <ion-col col-4>
+              <span style="float: right"><strong>Total</strong></span>
+          </ion-col>
+          <ion-col col-4>
+              <span style="float: right"><strong>{{varTotalBalanceLCY| number:'1.2-2' }}</strong> </span>
+          </ion-col>
+      </ion-row>
+
+      </ion-grid>
+
+
+</ion-content>

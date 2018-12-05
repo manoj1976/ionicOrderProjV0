@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{productCategory.description}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-searchbar [(ngModel)]='varProduct.varSearchTxt'></ion-searchbar>
+    </ion-item>
+  <ion-list>
+
+    <ion-item *ngFor='let item of productList|productFilter:varProduct.varSearchTxt'>
+        <ion-thumbnail item-start>
+            <!--<img src="img/thumbnail-totoro.png">
+            <img src="https://pscprodimage.blob.core.windows.net/productimage/keyboard.jpeg">
+            -->
+            <img [src]='item.prodimagename'>
+          </ion-thumbnail>
+        <h2>{{item.description}}</h2>
+        <p>{{item.detaileddesc}}</p>
+        <p>Price:{{appsvc.getCurrency(item.price,currencyPipe)}} &nbsp;&nbsp;Qty.<input type="number"  class="qty" [(ngModel)]='item.orderqty' (change)='onQtyChange(item)'/>
+        </p>
+        <p>
+          Amount:{{appsvc.getCurrency(item.amount,currencyPipe)}}
+        </p>
+
+        <button ion-button clear item-end (click)='viewProdDetail(item)'><div><ion-icon name="information"></ion-icon></div></button>
+        <button ion-button clear item-end (click)='addtoOrder(item)'><div><ion-icon name="add"></ion-icon></div></button>
+      <!--
+         Qty. <ion-input type="number" [(ngModel)]='orderQty'></ion-input>
+      <ion-thumbnail item-start>
+        <img src="img/thumbnail-totoro.png">
+      </ion-thumbnail>
+      <h2>My Neighbor Totoro</h2>
+      <p>Hayao Miyazaki • 1988</p>
+      <button ion-button clear item-end>View</button>
+    -->
+   
+    </ion-item>
+  </ion-list>
+</ion-content>

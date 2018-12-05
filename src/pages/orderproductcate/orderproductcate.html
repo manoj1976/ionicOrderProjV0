@@ -1,0 +1,23 @@
+<!--<ion-header>
+
+ <ion-navbar>
+     <ion-title>orderproductcate</ion-title>
+  
+  </ion-navbar>
+</ion-header>
+-->
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      Product Category
+    </ion-card-header>
+  
+    <ion-list>
+      <button ion-item (click)='category_click(item)' *ngFor="let item of prodCategoryList">
+        <ion-icon name="basket" item-start></ion-icon>
+        {{item.description}}
+      </button>
+    </ion-list>
+  </ion-card>   
+</ion-content>

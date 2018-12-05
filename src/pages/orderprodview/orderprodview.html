@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Product View</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card>
+        <!--<img src="img/nin-live.png"/>-->
+        <img [src]="selectedProd.prodimagename"/>
+        <ion-card-content>
+          <ion-card-title>
+            {{selectedProd.description}}
+            </ion-card-title>
+
+          <p>
+            {{selectedProd.detaileddesc}}
+          </p>
+          <p>Price:{{appsvc.getCurrency(selectedProd.price,currencyPipe)}} 
+              &nbsp;&nbsp;Stock:{{selectedProd.stock}}
+          </p>
+          <p>
+             Qty. <input type="number" class="qty" [(ngModel)]='selectedProd.orderqty' (change)='onQtyChange(selectedProd)'/>
+             <button ion-button clear item-end (click)='addtoOrder(selectedProd)'>Add</button>
+          </p>
+          <p>
+              Amount:{{appsvc.getCurrency(selectedProd.amount,currencyPipe)}}
+            </p>
+        </ion-card-content>
+      </ion-card>
+
+</ion-content>

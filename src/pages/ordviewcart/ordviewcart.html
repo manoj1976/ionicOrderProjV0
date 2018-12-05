@@ -1,0 +1,24 @@
+<ion-content padding>
+        <ion-list>
+                <ion-item *ngFor='let item of orderCart' [hidden]="item.linetype=='H'">
+                    <ion-thumbnail item-start>
+                        <!--<img src="img/thumbnail-totoro.png">-->
+                        <img [src]='item.prodimage'>
+                      </ion-thumbnail>
+                    <h2>{{item.prodcode}}</h2>
+                    <p>{{item.proddesc}}</p>
+                    <p>Price:{{appsvc.getCurrency(item.unitprice,currencyPipe)}} &nbsp;&nbsp;Qty.<input type="number" class="qty" [value]='item.orderqty'(change)='onQtyChange(item)'/>
+                    </p>
+                    <p>
+                      Amount:{{appsvc.getCurrency(item.amount,currencyPipe)}}
+                    </p>
+                </ion-item>
+              </ion-list>
+              <ion-item-divider class="dividerstyle">
+              </ion-item-divider>
+              <ion-item-divider item-end class="dividerstyle">
+                <ion-item item-end no-lines>
+                No. of Prouct:{{noOfProd}}, Total Qty.:{{totalQty}}, Total Amount:{{appsvc.getCurrency(totalAmount,currencyPipe)}}
+              </ion-item>
+              </ion-item-divider>
+</ion-content>

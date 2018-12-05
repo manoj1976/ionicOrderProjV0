@@ -1,0 +1,72 @@
+<!--
+  Generated template for the OrderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title> Customers</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+ 
+  <ion-item>
+   <ion-searchbar  [(ngModel)]='varSearchTxt' (ionInput)="getItems($event)"></ion-searchbar>
+ </ion-item>
+ <!-- <ion-list>
+    <ion-item  *ngFor="let item of items | customerFilter:varSearchTxt">
+      {{ item.name }}
+    </ion-item>
+  </ion-list>
+-->
+<ion-list>
+  <ion-item (click)='customerSelect(item)' *ngFor="let item of items | customerFilter:varSearchTxt">
+      <h2>{{ item.name }}</h2>
+      <h4>{{ item.add1 }}</h4>
+      <h4>{{ item.add2 }} {{item.city }}  Phone:{{item.phone}}</h4>
+  </ion-item>
+</ion-list> 
+<!--
+  <button ion-button [color]="primary" round (click)='btnClick_Test()' >
+    Test
+</button>
+-->
+</ion-content>
+<ion-footer fixed>
+  <!--
+  <ion-list>
+    <ion-item>
+      <ion-label>County</ion-label>
+      <ion-select [(ngModel)]="varCounty">
+        <ion-option value="nes">NES</ion-option>
+        <ion-option value="n64">Nintendo64</ion-option>
+        <ion-option value="ps">PlayStation</ion-option>
+        <ion-option value="genesis">Sega Genesis</ion-option>
+        <ion-option value="saturn">Sega Saturn</ion-option>
+        <ion-option value="snes">SNES</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+-->
+
+  <ion-list>
+    <ion-item>
+      <!--
+      <ion-label>County</ion-label>
+      <ion-select [(ngModel)]="varCounty" (ionChange)="onCountyChange($event)" >
+        <ion-option *ngFor='let item of countylist'  value="{{item.county}}">{{item.county}}</ion-option>
+      </ion-select>
+    -->
+    <ion-label>Sales Rep.</ion-label>
+    <ion-select   [(ngModel)]="varSalesrep" (ionChange)="onSalesRepChange($event)" >
+      <ion-option  *ngFor='let item of salesreplist'  value="{{item.code}}">{{item.name}}</ion-option>
+    </ion-select>s
+
+    </ion-item>
+  </ion-list>
+</ion-footer>
+

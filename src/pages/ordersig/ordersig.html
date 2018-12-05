@@ -1,0 +1,28 @@
+<!--<ion-header>
+
+  <ion-navbar>
+    <ion-title>ordersig</ion-title>
+  </ion-navbar>
+
+</ion-header>
+-->
+
+<ion-content padding>
+  <div class="title">Please draw your Signature</div>
+  
+  <ion-row [ngClass]="{'drawing-active': isDrawing}">
+    <ion-col>
+      <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+    </ion-col>
+    <ion-col></ion-col>
+ 
+  </ion-row>
+
+  <ion-row><div></div></ion-row>
+  <ion-row><div></div></ion-row>
+  <ion-row><div></div></ion-row>
+  <button ion-button round full color="signclearbtn" [disabled]="varDisable" (click)="btn_clearPad()">Clear</button>
+  <div></div>
+  <div></div>
+  <button ion-button round full ion-bottom color="savebtn" [disabled]="varDisable" (click)="btn_saveOrder()">Save</button>
+</ion-content>

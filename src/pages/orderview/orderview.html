@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Order View</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-searchbar [(ngModel)]='varOrderview.varSearchTxt'></ion-searchbar>
+    </ion-item>
+  <ion-list>
+    <ion-item *ngFor="let item of orderList|orderviewFilter:varOrderview.varSearchTxt">
+      <ion-thumbnail item-start>
+        {{item.orderno}}
+      </ion-thumbnail>
+      <h2>{{item.customer.name}}</h2>
+      <p>Order Date:{{item.orderdate | date:'dd/MM/yyyy'}} RepId:{{item.customer.repid}} </p>
+      <p>SyncStatus:{{item.sync}} {{item.syncmsg}} </p>
+      <button ion-button clear item-end (click)='orderdelete_click(item)'>Delete</button>
+      <button ion-button clear item-end (click)='orderview_click(item)'>View</button>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
+<ion-footer fixed>
+    <ion-item>
+        <ion-label>Order Type</ion-label>
+        <ion-select [(ngModel)]="varordertype" (ionChange)="onOrdertypeChange($event)">
+          <ion-option value="nonsyncorder">Show Orders are not Synched</ion-option>
+          <ion-option value="synchedorder">Show Orders are Synched</ion-option>
+          <ion-option value="allorders">Show All Orders</ion-option>
+        </ion-select>
+      </ion-item>
+</ion-footer>

@@ -1,0 +1,79 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Sync</ion-title>
+
+    <ion-buttons end>
+        <ion-spinner name="circles" *ngIf='varShowProgress'></ion-spinner>
+
+      <button  ion-button icon-only end (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+        <ion-item>
+            <ion-label>Sync All</ion-label>
+            <ion-toggle [(ngModel)]="varSyncall" (ionChange)='btn_syncallChange()' [disabled]="varSyncVar.varDisable"></ion-toggle>
+        </ion-item>
+      
+    <br><br><br>
+    <ion-item>
+        <ion-label>Sales rep.</ion-label>
+        <ion-toggle [(ngModel)]="varSyncVar.salesrepSync" [disabled]="varSyncVar.varDisable"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Customer</ion-label>
+        <ion-toggle [(ngModel)]="varSyncVar.custSync" [disabled]="varSyncVar.varDisable"></ion-toggle>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label>Prod. Category</ion-label>
+        <ion-toggle [(ngModel)]="varSyncVar.prodCategorySync" [disabled]="varSyncVar.varDisable"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Product</ion-label>
+        <ion-toggle [(ngModel)]="varSyncVar.prodSync" [disabled]="varSyncVar.varDisable"></ion-toggle>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Login</ion-label>
+        <ion-toggle [(ngModel)]="varSyncVar.loginaccSync" [disabled]="varSyncVar.varDisable"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Order</ion-label>
+        <ion-toggle [(ngModel)]="varSyncVar.orderSync" [disabled]="varSyncVar.varDisable"></ion-toggle>
+      </ion-item>
+
+    </ion-list>
+<div>
+    <button ion-button [color]="primary" round (click)='btnClick_Sync()' [disabled]="varSyncVar.varDisable">
+        Sync
+    </button>
+<!--
+    <button ion-button [color]="primary" round (click)='btnClick_Test()' [disabled]="varSyncVar.varDisable">
+      Test
+  </button>
+-->
+  </div>
+ 
+
+
+
+  <!--
+
+  <ul>  
+      <li *ngFor="let item of syncStatus">
+        {{ item.tble }} ..... {{ item.status }}
+      </li>
+    </ul>  
+  -->
+</ion-content>

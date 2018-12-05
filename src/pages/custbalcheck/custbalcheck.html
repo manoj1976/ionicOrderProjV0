@@ -1,0 +1,34 @@
+<!--
+  Generated template for the CustbalcheckPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Balance Check</ion-title>
+    <ion-buttons end>
+      <ion-spinner  name="circles" *ngIf='varShowProgress'></ion-spinner>
+  </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-searchbar [(ngModel)]='varCustbal.varSearchTxt'></ion-searchbar>
+    <button item-right ion-button round small (click)='btn_filterClick()'>
+        Filter
+      </button>
+</ion-item>
+
+<ion-list>
+  <ion-item (click)='customerSelect(item)' *ngFor="let item of custLst | customerFilter:varCustbal.varSearchTxt">
+      <h2>{{ item.name }}</h2>
+      <h4>{{ item.add1 }}</h4>
+      <h4>{{ item.add2 }} {{item.city }}  Phone:{{item.phone}}</h4>
+  </ion-item>
+</ion-list> 
+</ion-content>

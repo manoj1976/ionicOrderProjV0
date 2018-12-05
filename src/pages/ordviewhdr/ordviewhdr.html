@@ -1,0 +1,31 @@
+<ion-content padding>
+ <ion-card>
+      <ion-card-header>
+        Customer
+      </ion-card-header>
+      <ion-card-content>
+        
+        <ion-item>
+          {{varOrder.customer.code}}<br/>
+          {{varOrder.customer.name}}<br/>
+          Rep.Id:{{varOrder.customer.repid}}<br/>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-item>
+        <ion-label>Order Contact</ion-label>
+        <ion-input type="text" [value]='varOrder.ordercontact' readonly></ion-input>
+    </ion-item>
+    
+
+    <ion-item>
+        <ion-label>Order Ref.</ion-label>
+        <ion-input type="text" [value]='varOrder.orderref' readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Sync Status </ion-label>
+        <ion-textarea [value]='varOrder.syncmsg' readonly></ion-textarea>
+    </ion-item>
+</ion-content>

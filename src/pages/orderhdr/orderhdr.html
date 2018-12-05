@@ -1,0 +1,37 @@
+<!--<ion-header>
+
+  <ion-navbar>
+    <ion-title>Header</ion-title>
+  </ion-navbar>
+
+</ion-header>
+-->
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-header>
+          Customer
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            {{varOrder.customer.name}}<br/>
+            {{varOrder.customer.add1}}<br/>
+            {{varOrder.customer.add2}}<br/>
+            {{varOrder.customer.city}}<br/>
+            Phone: {{varOrder.customer.phone}}
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-item>
+          <ion-label>Order Contact</ion-label>
+          <ion-input type="text" [(ngModel)]='varOrder.ordercontact' (ionChange)='onValueHdrChange()'></ion-input>
+      </ion-item>
+      
+
+      <ion-item>
+          <ion-label>Order Ref.</ion-label>
+          <ion-input type="text" [(ngModel)]='varOrder.orderref' (ionChange)='onValueHdrChange()'></ion-input>
+      </ion-item>
+      
+</ion-content>
